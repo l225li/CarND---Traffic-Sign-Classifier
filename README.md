@@ -98,8 +98,8 @@ To train the model, I used mini-batching optimized by AdamOptimizer which is a m
 
 My final model results were:
 * training set accuracy of 0.995
-* validation set accuracy of 0.972
-* test set accuracy of 0.945
+* validation set accuracy of 0.981
+* test set accuracy of 0.958
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -142,24 +142,75 @@ Here are the results of the prediction:
 |:-------------------------------------:|:---------------------------------------------:| 
 | Priority road      					| Priority road   								| 
 | Right-of-way at the next intersection | Right-of-way at the next intersection			|
-| Stop									| Yield											|
+| Stop									| Stop											|
 | Road work      						| Road work 					 				|
 | Bumpy road							| Bumpy road     								|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of 94.5%. 
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 95.8%. 
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
-| Probability         	|     Prediction	        					| 
-|:---------------------:|:---------------------------------------------:| 
-| .25         			| Priority road   								| 
-| .44     				| Right-of-way at the next intersection 		|
-| .09					| Yield											|
-| .28	      			| Road work 					 				|
-| .34				    | Bumpy road      								|
+##### Image 1 
+
+For the first image, the model is relatively sure that this is a priority road (probability of 0.48), and the image does contain a priority. The top five soft max probabilities were
 
 
-For the third image, the model predicted wrongly for `Yield` at a probability at 0.09. It was not very confident at its prediction. 
+| Probability         	|     Prediction	        							| 
+|:---------------------:|:-----------------------------------------------------:| 
+| .48         			| Priority road   										| 
+| .11     				| Speed limit (30km/h)									|
+| .09					| End of no passing by vehicles over 3.5 metric tons	|
+| .09	      			| No passing for vehicles over 3.5 metric tons 			|
+| .09				    | Road work      										|
+
+##### Image 2
+For the first image, the model is relatively sure that this is a Right-of-way at the next intersection (probability of 0.56), and it is correct. The top five soft max probabilities were
+
+
+| Probability         	|     Prediction	        							| 
+|:---------------------:|:-----------------------------------------------------:| 
+| .56         			| Right-of-way at the next intersection   				| 
+| .31     				| Beware of ice/snow									|
+| .21					| Vehicles over 3.5 metric tons prohibited				|
+| .20	      			| Turn left ahead 										|
+| .19				    | Pedestrians      										|
+
+##### Image 3
+For the first image, the model is relatively sure that this is a stop sign (probability of 0.19), and it is correct. It is interesting to see how it can recognize the road shape and red circle in the stop sign and speed limit signs. The top five soft max probabilities were
+
+
+| Probability         	|     Prediction	        							| 
+|:---------------------:|:-----------------------------------------------------:| 
+| .19         			| Stop   												| 
+| .10     				| Speed limit (60km/h)									|
+| .10					| Speed limit (80km/h)									|
+| .06	      			| Speed limit (50km/h)									|
+| .05				    | Speed limit (30km/h)      							|
+
+##### Image 4
+
+For the first image, the model is relatively sure that this is a road work (probability of 0.34), and it is correct. The top five soft max probabilities were
+
+
+| Probability         	|     Prediction	        							| 
+|:---------------------:|:-----------------------------------------------------:| 
+| .34         			| Road work  											| 
+| .29     				| Bicycles crossing										|
+| .27					| Bumpy road											|
+| .17	      			| Wild animals crossing 								|
+| .15				    | Slippery road      									|
+
+##### Image 5
+For the first image, the model is relatively sure that this is a bumpy road (probability of 0.38), and it is correct. The top five soft max probabilities were
+
+
+| Probability         	|     Prediction	        							| 
+|:---------------------:|:-----------------------------------------------------:| 
+| .38         			| Bumpy road  											| 
+| .29     				| Bicycles crossing										|
+| .22					| Slippery road											|
+| .16	      			| Speed limit (50km/h) 									|
+| .15				    | Children crossing      								|
+
